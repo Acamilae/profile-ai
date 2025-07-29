@@ -19,7 +19,7 @@ export function Navigation() {
     <nav className="fixed top-0 w-full bg-warm-cream/95 backdrop-blur-sm z-50 border-b border-forest-light/20">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <div className="text-2xl font-bold text-thalo-green">Estos somos</div>
+          <div className="text-2xl font-bold text-thalo-green">Somos</div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
