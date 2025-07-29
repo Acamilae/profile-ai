@@ -12,13 +12,13 @@ const products = [
   {
     name: "Sushi Variado",
     category: "Comida Asiática",
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://i.imgur.com/Xwu3Ht1.png",
     description: "Selección premium de sushi fresco y rolls especiales",
   },
   {
     name: "Pad Thai",
     category: "Comida Asiática",
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://i.imgur.com/6ZcqG8P.png",
     description: "Clásico tailandés con fideos de arroz y salsa tamarindo",
   },
   {
@@ -31,25 +31,25 @@ const products = [
   {
     name: "Chaqueta Impermeable",
     category: "Ropa de Senderismo",
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://i.imgur.com/wxTpLgV.png",
     description: "Chaqueta técnica resistente al agua y transpirable",
   },
   {
     name: "Botas de Montaña",
     category: "Ropa de Senderismo",
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://i.imgur.com/ZBmfGDZ.png",
     description: "Botas resistentes con excelente tracción y soporte",
   },
   {
     name: "Mochila de Trekking",
     category: "Ropa de Senderismo",
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://i.imgur.com/DPwfpno.png",
     description: "Mochila ergonómica de 40L para aventuras largas",
   },
   {
     name: "Pantalones Técnicos",
     category: "Ropa de Senderismo",
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://i.imgur.com/t9xcNjl.png",
     description: "Pantalones ligeros y resistentes para todo terreno",
   },
 ]
