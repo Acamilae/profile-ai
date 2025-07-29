@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Equipo - Estos somos nosotros</title>
+    <meta name="description" content="Conoce a nuestro increíble equipo de 5 personas con pasiones únicas y descubre nuestros productos de comida asiática y equipamiento de senderismo.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Estos somos</div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#perfiles" class="nav-link">Perfiles</a>
+                <a href="#productos" class="nav-link">Productos</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Estos somos 
+                    <span class="hero-accent">nosotros</span>
+                </h1>
+                <p class="hero-description">
+                    Un grupo diverso de personas apasionadas, cada una con sus propios intereses, hobbies y perspectivas únicas
+                    que enriquecen nuestro trabajo conjunto.
+                </p>
+                <div class="hero-divider"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perfiles del Equipo -->
+    <section id="perfiles" class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Estos somos nosotros</h2>
+                <p class="section-description">
+                    Cada miembro aporta su personalidad única y pasiones especiales
+                </p>
+            </div>
+
+            <div class="team-grid" id="team-grid">
+                <!-- Los perfiles se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería de Productos -->
+    <section id="productos" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Lo que puedes comprar</h2>
+                <p class="section-description">
+                    Descubre nuestra selección de comida asiática auténtica y equipamiento de senderismo de calidad
+                </p>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Los productos se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot -->
+    <section id="contacto" class="chatbot-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿Tienes Preguntas?</h2>
+                <p class="section-description">
+                    Nuestro asistente virtual está aquí para ayudarte
+                </p>
+            </div>
+
+            <div class="chatbot-container">
+                <button id="chat-toggle" class="chat-toggle-btn">
+                    <i class="fas fa-comments"></i>
+                    Iniciar Chat
+                </button>
+
+                <div id="chat-window" class="chat-window hidden">
+                    <div class="chat-header">
+                        <div class="chat-title">
+                            <i class="fas fa-robot"></i>
+                            Asistente Virtual
+                        </div>
+                        <button id="chat-close" class="chat-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message bot-message">
+                            <div class="message-content">
+                                ¡Hola! Soy el asistente virtual del equipo. ¿En qué puedo ayudarte hoy?
+                            </div>
+                            <div class="message-time" id="initial-time"></div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." class="chat-input">
+                        <button id="chat-send" class="chat-send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3 class="footer-title">Nuestro Equipo</h3>
+                <p class="footer-description">Un grupo diverso unido por la pasión y la creatividad</p>
+                <div class="footer-divider"></div>
+                <p class="footer-copyright">© 2024 Nuestro Equipo. Diseñado con ❤️ y creatividad.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
