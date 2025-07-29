@@ -275,20 +275,117 @@ function sendMessage() {
 function getBotResponse(userInput) {
   const input = userInput.toLowerCase()
 
-  if (input.includes("equipo") || input.includes("miembros")) {
-    return "Nuestro equipo está formado por 5 personas increíbles: Camila, Rocío, Karol, Ricardo y Andrea. Cada uno aporta sus talentos únicos al grupo."
-  }
-  if (input.includes("productos") || input.includes("comida") || input.includes("senderismo")) {
-    return "Ofrecemos una selección de comida asiática auténtica y equipamiento de senderismo de alta calidad. ¿Te interesa alguna categoría en particular?"
-  }
-  if (input.includes("contacto") || input.includes("información")) {
-    return "Puedes encontrar más información sobre cada miembro del equipo en la sección de perfiles. ¿Hay algo específico que te gustaría saber?"
-  }
-  if (input.includes("hola") || input.includes("hi")) {
-    return "¡Hola! Me alegra saludarte. Estoy aquí para ayudarte con cualquier pregunta sobre nuestro equipo y productos."
+  // Respuestas sobre miembros específicos del equipo
+  if (input.includes("camila")) {
+    return "¡Camila España es increíble! Es una persona muy creativa y aventurera. Sus hobbies incluyen tejer (hace piezas hermosas), leer, senderismo por montañas, viajar por carretera descubriendo nuevos lugares, y cocinar platos deliciosos. Encuentra el equilibrio perfecto entre actividades manuales y exploración del mundo."
   }
 
-  return "Gracias por tu mensaje. Estoy aquí para ayudarte con información sobre nuestro equipo y productos. ¿Hay algo específico que te gustaría saber?"
+  if (input.includes("rocío")) {
+    return "Rocío es nuestra artista y amante de las historias. Le encanta leer libros de todos los géneros, escuchar música mientras trabaja, ver series de TV en familia (especialmente dramas y comedias), y su especialidad es diseñar imágenes de separadores para libros únicos y creativos. Combina perfectamente su pasión por la lectura con el diseño visual."
+  }
+
+  if (input.includes("karol")) {
+    return "Karol es una persona multifacética fascinante. Sus pasiones incluyen la música (toca instrumentos y compone), hacer ejercicio regularmente (yoga, running, gym), leer libros de desarrollo personal y ficción, crear y apreciar arte en todas sus formas, y está constantemente aprendiendo cosas nuevas - desde idiomas hasta habilidades técnicas."
+  }
+
+  if (input.includes("ricardo")) {
+    return "Ricardo Gutiérrez es nuestro experto en tecnología y deportes. Es apasionado por el mundo digital, programación, nuevas tecnologías y tendencias tech. También es un gran entusiasta del fútbol - tanto jugando como viendo partidos. Valora mucho el trabajo en equipo, la disciplina y siempre busca aplicar estos principios tanto en el deporte como en el trabajo."
+  }
+
+  if (input.includes("andrea")) {
+    return "Andrea Carolina es pura energía positiva. Su filosofía es disfrutar la vida al máximo. Le encanta ver series (desde comedias hasta thrillers), conversar profundamente con amigos, bailar cualquier ritmo, escuchar música de todos los géneros, viajar y descubrir nuevas culturas, y sobre todo reír con sus amigos. Cree firmemente que la vida es un regalo que debemos celebrar cada día."
+  }
+
+  // Respuestas sobre el equipo en general
+  if (input.includes("equipo") || input.includes("miembros") || input.includes("grupo")) {
+    return "Nuestro equipo está formado por 5 personas increíbles: Camila España (creativa y aventurera), Rocío (artista y lectora), Karol (multifacética y siempre aprendiendo), Ricardo Gutiérrez (tech y fútbol), y Andrea Carolina (energía pura y alegría de vivir). Cada uno aporta talentos únicos. ¿Te gustaría saber más sobre alguno en particular?"
+  }
+
+  // Respuestas específicas sobre comida asiática
+  if (input.includes("ramen")) {
+    return "¡Nuestro Ramen Tradicional es espectacular! Es auténtico ramen japonés con caldo rico y profundo, fideos frescos hechos a mano, chashu (cerdo braseado), huevo marinado, nori, cebollín y brotes de bambú. Disponible en variedades: Shoyu (soja), Miso (pasta de soja fermentada) y Tonkotsu (hueso de cerdo)."
+  }
+
+  if (input.includes("sushi")) {
+    return "Nuestra selección de Sushi Variado incluye: Nigiri premium (salmón, atún, anguila), Maki rolls clásicos (California, Philadelphia, Spicy Tuna), Sashimi fresco del día, y nuestros rolls especiales de la casa. Todo preparado por chefs especializados con pescado de la más alta calidad y arroz de sushi perfectamente sazonado."
+  }
+
+  if (input.includes("pad thai")) {
+    return "Nuestro Pad Thai es el clásico tailandés auténtico: fideos de arroz salteados con salsa de tamarindo, camarones o pollo, huevos revueltos, brotes de soja, cebollín, cacahuates tostados y lima fresca. Disponible en niveles de picante: suave, medio y picante. ¡Una explosión de sabores!"
+  }
+
+  if (input.includes("dim sum")) {
+    return "Nuestro Dim Sum incluye una variedad exquisita: Har Gow (dumplings de camarón translúcidos), Siu Mai (dumplings de cerdo y camarón), Char Siu Bao (panecillos al vapor con cerdo BBQ), Cheung Fun (rollitos de fideos de arroz), y postres como Egg Tarts. Todos hechos al vapor en bambú tradicional."
+  }
+
+  // Respuestas específicas sobre equipamiento de senderismo
+  if (input.includes("chaqueta") || input.includes("impermeable")) {
+    return "Nuestra Chaqueta Impermeable es técnica de alta gama: membrana Gore-Tex para máxima impermeabilidad, transpirable para evitar condensación, costuras selladas, capucha ajustable, bolsillos con cremallera resistente al agua, y ventilaciones en axilas. Perfecta para montañismo, trekking y clima extremo."
+  }
+
+  if (input.includes("botas") || input.includes("montaña")) {
+    return "Las Botas de Montaña ofrecen: suela Vibram con tracción superior, upper de cuero resistente al agua, soporte de tobillo reforzado, plantilla ergonómica, protección en puntera y talón, cordones resistentes, y membrana impermeable transpirable. Ideales para senderos rocosos, barro y terreno irregular."
+  }
+
+  if (input.includes("mochila") || input.includes("trekking")) {
+    return "Nuestra Mochila de Trekking de 40L incluye: sistema de suspensión ergonómico, cinturón acolchado para distribuir peso, compartimentos organizadores, acceso frontal y superior, porta bastones, red para casco, funda para lluvia incluida, y materiales ultra-resistentes. Perfecta para aventuras de varios días."
+  }
+
+  if (input.includes("pantalones") || input.includes("técnicos")) {
+    return "Los Pantalones Técnicos son: tejido ripstop ultra-resistente, secado rápido, protección UV, múltiples bolsillos con cremallera, rodillas pre-formadas para movilidad, cintura ajustable, tratamiento repelente al agua (DWR), y diseño ergonómico. Ideales para senderismo, escalada y actividades outdoor."
+  }
+
+  // Respuestas generales sobre productos
+  if (input.includes("comida") || input.includes("asiática") || input.includes("restaurante")) {
+    return "Nuestra comida asiática incluye: Ramen Tradicional japonés, Sushi Variado premium, Pad Thai tailandés auténtico, y Dim Sum cantonés. Cada plato es preparado con ingredientes frescos y recetas tradicionales. ¿Te interesa algún plato específico? Puedo darte más detalles."
+  }
+
+  if (
+    input.includes("ropa") ||
+    input.includes("senderismo") ||
+    input.includes("montaña") ||
+    input.includes("outdoor")
+  ) {
+    return "Nuestro equipamiento de senderismo incluye: Chaquetas Impermeables técnicas, Botas de Montaña con suela Vibram, Mochilas de Trekking ergonómicas de 40L, y Pantalones Técnicos resistentes. Todo diseñado para aventureros serios. ¿Qué tipo de actividad outdoor planeas?"
+  }
+
+  if (input.includes("productos") || input.includes("venden") || input.includes("ofrecen")) {
+    return "Ofrecemos dos categorías principales: 🍜 COMIDA ASIÁTICA (Ramen, Sushi, Pad Thai, Dim Sum) y 🏔️ EQUIPAMIENTO DE SENDERISMO (Chaquetas, Botas, Mochilas, Pantalones). Todos nuestros productos son de alta calidad. ¿Te interesa alguna categoría específica?"
+  }
+
+  // Respuestas sobre precios y disponibilidad
+  if (input.includes("precio") || input.includes("costo") || input.includes("cuánto")) {
+    return "Los precios varían según el producto. Para comida asiática: platos desde $12-25. Para equipamiento de senderismo: desde $45-200 dependiendo del artículo. Te recomiendo contactarnos directamente para precios actualizados y ofertas especiales."
+  }
+
+  if (input.includes("disponible") || input.includes("stock") || input.includes("inventario")) {
+    return "Mantenemos inventario regular de todos nuestros productos. Para verificar disponibilidad específica de tallas, colores o platos del día, te recomiendo contactarnos directamente o visitar nuestras instalaciones."
+  }
+
+  // Respuestas sobre contacto e información
+  if (input.includes("contacto") || input.includes("información") || input.includes("ubicación")) {
+    return "Puedes encontrar información detallada de cada miembro en la sección de perfiles de nuestro sitio. Para contacto directo, consultas específicas o pedidos, puedes escribirnos o visitarnos. ¿Hay algo específico sobre algún miembro o producto que te gustaría saber?"
+  }
+
+  if (input.includes("horario") || input.includes("abierto") || input.includes("horarios")) {
+    return "Nuestros horarios de atención varían según el servicio. Para comida asiática y equipamiento de senderismo, te recomiendo contactarnos para conocer horarios actualizados y disponibilidad."
+  }
+
+  // Respuestas de saludo y cortesía
+  if (input.includes("hola") || input.includes("hi") || input.includes("buenos") || input.includes("buenas")) {
+    return "¡Hola! Me alegra mucho saludarte. Soy el asistente virtual del equipo y estoy aquí para ayudarte con cualquier pregunta sobre nuestros 5 increíbles miembros, nuestra deliciosa comida asiática, o nuestro equipamiento de senderismo profesional. ¿En qué puedo ayudarte hoy?"
+  }
+
+  if (input.includes("gracias") || input.includes("thanks")) {
+    return "¡De nada! Es un placer ayudarte. Si tienes más preguntas sobre nuestro equipo, productos de comida asiática, equipamiento de senderismo, o cualquier otra cosa, no dudes en preguntar. ¡Estoy aquí para ti!"
+  }
+
+  if (input.includes("adiós") || input.includes("bye") || input.includes("chao")) {
+    return "¡Hasta pronto! Fue genial conversar contigo. Recuerda que siempre puedes volver si tienes más preguntas sobre nuestro equipo o productos. ¡Que tengas un día increíble! 😊"
+  }
+
+  // Respuesta por defecto mejorada
+  return "Interesante pregunta. Estoy aquí para ayudarte con información sobre: 👥 Nuestro equipo (Camila, Rocío, Karol, Ricardo, Andrea), 🍜 Comida asiática (Ramen, Sushi, Pad Thai, Dim Sum), 🏔️ Equipamiento de senderismo (Chaquetas, Botas, Mochilas, Pantalones). ¿Sobre qué te gustaría saber más?"
 }
 
 // Renderizar mensaje en el chat
