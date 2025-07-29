@@ -10,14 +10,14 @@ const teamMembers = [
     hobbies: ["Tejer", "Leer", "Senderismo", "Viajar por carretera", "Cocinar"],
   },
   {
-    name: "Rocío",
+    name: "Rocio Ramirez",
     image: "https://i.imgur.com/Oendr91.png",
     biography:
       "Amante de las historias y el arte visual, combina su pasión por la lectura con el diseño creativo para crear piezas únicas.",
     hobbies: ["Leer", "Escuchar música", "Ver series de TV", "Diseñar separadores para libros"],
   },
   {
-    name: "Karol",
+    name: "Karol Rangel",
     image: "https://i.imgur.com/fuqtxMc.png",
     biography:
       "Una persona multifacética que equilibra el cuidado físico con el crecimiento intelectual y la apreciación artística.",
@@ -31,7 +31,7 @@ const teamMembers = [
     hobbies: ["Tecnología", "Fútbol", "Mundo digital", "Trabajo en equipo"],
   },
   {
-    name: "Andrea Carolina",
+    name: "Andrea C. Mier",
     image: "https://i.imgur.com/m8MG9yt.png",
     biography:
       "Me encanta disfrutar de la vida, compartir momentos con mis seres queridos. La vida es un regalo y quiero disfrutarla al máximo.",
