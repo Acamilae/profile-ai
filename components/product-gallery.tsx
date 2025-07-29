@@ -24,7 +24,7 @@ const products = [
   {
     name: "Dim Sum",
     category: "Comida Asiática",
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://i.imgur.com/6ZcqG8P.png",
     description: "Variedad de dumplings al vapor estilo cantonés",
   },
   // Ropa de Senderismo
