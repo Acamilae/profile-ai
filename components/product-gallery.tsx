@@ -6,7 +6,7 @@ const products = [
   {
     name: "Ramen Tradicional",
     category: "Comida Asiática",
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://i.imgur.com/4dHPRjn.png",
     description: "Auténtico ramen japonés con caldo rico y fideos frescos",
   },
   {
