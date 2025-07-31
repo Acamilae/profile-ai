@@ -51,20 +51,39 @@ export function Chatbot() {
     setInputValue("")
   }
 
+  // SOLO la función de respuestas personalizada:
   const getBotResponse = (userInput: string): string => {
     const input = userInput.toLowerCase()
 
-    if (input.includes("equipo") || input.includes("miembros")) {
-      return "Nuestro equipo está formado por 5 personas increíbles: Camila, Rocío, Karol, Ricardo y Andrea. Cada uno aporta sus talentos únicos al grupo."
-    }
-    if (input.includes("productos") || input.includes("comida") || input.includes("senderismo")) {
-      return "Ofrecemos una selección de comida asiática auténtica y equipamiento de senderismo de alta calidad. ¿Te interesa alguna categoría en particular?"
-    }
-    if (input.includes("contacto") || input.includes("información")) {
-      return "Puedes encontrar más información sobre cada miembro del equipo en la sección de perfiles. ¿Hay algo específico que te gustaría saber?"
+    // ...Aquí copia toda tu lógica de respuestas del script.js...
+    if (input.includes("camila")) {
+      return "¡Camila España es increíble! Es una persona muy creativa y aventurera. Sus hobbies incluyen tejer (hace piezas hermosas), leer, senderismo por montañas, viajar por carretera descubriendo nuevos lugares, y cocinar platos deliciosos. Encuentra el equilibrio perfecto entre actividades manuales y exploración del mundo."
     }
 
-    return "Gracias por tu mensaje. Estoy aquí para ayudarte con información sobre nuestro equipo y productos. ¿Hay algo específico que te gustaría saber?"
+    if (input.includes("rocío")) {
+      return "Rocío es nuestra artista y amante de las historias. Le encanta leer libros de todos los géneros, escuchar música mientras trabaja, ver series de TV en familia (especialmente dramas y comedias), y su especialidad es diseñar imágenes de separadores para libros únicos y creativos. Combina perfectamente su pasión por la lectura con el diseño visual."
+    }
+
+    if (input.includes("karol")) {
+      return "Karol es una persona multifacética fascinante. Sus pasiones incluyen la música (toca instrumentos y compone), hacer ejercicio regularmente (yoga, running, gym), leer libros de desarrollo personal y ficción, crear y apreciar arte en todas sus formas, y está constantemente aprendiendo cosas nuevas - desde idiomas hasta habilidades técnicas."
+    }
+
+    if (input.includes("ricardo")) {
+      return "Ricardo Gutiérrez es nuestro experto en tecnología y deportes. Es apasionado por el mundo digital, programación, nuevas tecnologías y tendencias tech. También es un gran entusiasta del fútbol - tanto jugando como viendo partidos. Valora mucho el trabajo en equipo, la disciplina y siempre busca aplicar estos principios tanto en el deporte como en el trabajo."
+    }
+
+    if (input.includes("andrea")) {
+      return "Andrea Carolina es pura energía positiva. Su filosofía es disfrutar la vida al máximo. Le encanta ver series (desde comedias hasta thrillers), conversar profundamente con amigos, bailar cualquier ritmo, escuchar música de todos los géneros, viajar y descubrir nuevas culturas, y sobre todo reír con sus amigos. Cree firmemente que la vida es un regalo que debemos celebrar cada día."
+    }
+
+    if (input.includes("equipo") || input.includes("miembros") || input.includes("grupo")) {
+      return "Nuestro equipo está formado por 5 personas increíbles: Camila España (creativa y aventurera), Rocío (artista y lectora), Karol (multifacética y siempre aprendiendo), Ricardo Gutiérrez (tech y fútbol), y Andrea Carolina (energía pura y alegría de vivir). Cada uno aporta talentos únicos. ¿Te gustaría saber más sobre alguno en particular?"
+    }
+
+    // ...y así con el resto de respuestas...
+
+    // Respuesta por defecto
+    return "Interesante pregunta. Estoy aquí para ayudarte con información sobre: 👥 Nuestro equipo (Camila, Rocío, Karol, Ricardo, Andrea), 🍜 Comida asiática (Ramen, Sushi, Pad Thai, Dim Sum), 🏔️ Equipamiento de senderismo (Chaquetas, Botas, Mochilas, Pantalones). ¿Sobre qué te gustaría saber más?"
   }
 
   return (
