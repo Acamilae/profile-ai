@@ -17,42 +17,36 @@ const teamMembers = [
   {
     name: "Camila España",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
-    biography:
-      "Una persona creativa y aventurera que encuentra equilibrio entre las actividades manuales y la exploración del mundo.",
+    biography: "Una persona creativa y aventurera que encuentra equilibrio entre las actividades manuales y la exploración del mundo.",
     hobbies: ["Tejer", "Leer", "Senderismo", "Viajar por carretera", "Cocinar"],
   },
   {
     name: "Rocio",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-    biography:
-      "Amante de las historias y el arte visual, combina su pasión por la lectura con el diseño creativo para crear piezas únicas.",
+    biography: "Amante de las historias y el arte visual, combina su pasión por la lectura con el diseño creativo para crear piezas únicas.",
     hobbies: ["Leer", "Escuchar música", "Ver series de TV", "Diseñar separadores para libros"],
   },
   {
     name: "Karol",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face",
-    biography:
-      "Una persona multifacética que equilibra el cuidado físico con el crecimiento intelectual y la apreciación artística.",
+    biography: "Una persona multifacética que equilibra el cuidado físico con el crecimiento intelectual y la apreciación artística.",
     hobbies: ["Música", "Hacer ejercicio", "Leer", "Arte", "Aprender cosas nuevas"],
   },
   {
     name: "Ricardo Gutierrez",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    biography:
-      "Apasionado por la tecnología y el mundo digital. Es un entusiasta del fútbol, tanto como espectador como jugador, valorando el trabajo en equipo y la disciplina.",
+    biography: "Apasionado por la tecnología y el mundo digital. Es un entusiasta del fútbol, tanto como espectador como jugador, valorando el trabajo en equipo y la disciplina.",
     hobbies: ["Tecnología", "Fútbol", "Mundo digital", "Trabajo en equipo"],
   },
   {
     name: "Andrea Carolina",
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face",
-    biography:
-      "Me encanta disfrutar de la vida, compartir momentos con mis seres queridos. La vida es un regalo y quiero disfrutarla al máximo.",
+    biography: "Me encanta disfrutar de la vida, compartir momentos con mis seres queridos. La vida es un regalo y quiero disfrutarla al máximo.",
     hobbies: ["Ver series", "Conversar", "Bailar", "Escuchar música", "Viajar", "Reír con amigos"],
   },
 ]
 
 const products = [
-  // Comida Asiatica
   {
     name: "Ramen Tradicional",
     category: "Comida Asiatica",
@@ -81,7 +75,6 @@ const products = [
     image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&h=300&fit=crop",
     description: "Variedad de dumplings al vapor estilo cantonés",
   },
-  // Ropa de Senderismo
   {
     name: "Chaqueta Impermeable",
     category: "Ropa de Senderismo",
@@ -111,6 +104,11 @@ const products = [
     description: "Pantalones ligeros y resistentes para todo terreno",
   },
 ]
+
+// Función para quitar tildes y normalizar
+function normalize(str: string) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
 
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false)
@@ -150,40 +148,53 @@ export function Chatbot() {
     setInputValue("")
   }
 
-  // Usando los datos para responder dinámicamente
+  // --- Lógica corregida ---
   const getBotResponse = (userInput: string): string => {
-    const input = userInput.toLowerCase()
+    const input = normalize(userInput);
 
-    // Buscar por nombre de miembro
-    const member = teamMembers.find(m =>
-      input.includes(m.name.toLowerCase().split(' ')[0]) || input.includes(m.name.toLowerCase().split(' ')[1]?.toLowerCase() || '')
-    )
+    // 1. Categorías primero
+    if (
+      input.includes("ropa") ||
+      input.includes("senderismo") ||
+      input.includes("montaña")
+    ) {
+      const ropa = products.filter(p => p.category === "Ropa de Senderismo");
+      return `Estos son nuestros productos de senderismo: ${ropa.map(p => p.name).join(", ")}`;
+    }
+
+    if (
+      input.includes("comida asiatica") ||
+      input.includes("comida asiática") ||
+      input.includes("comida")
+    ) {
+      const comida = products.filter(p => p.category === "Comida Asiatica");
+      return `Estos son nuestros platos de comida asiática: ${comida.map(p => p.name).join(", ")}`;
+    }
+
+    // 2. Producto específico
+    const product = products.find(p => input.includes(normalize(p.name)));
+    if (product) {
+      return `${product.name}: ${product.description}`;
+    }
+
+    // 3. Miembro por nombre completo o apellido (palabra completa)
+    const inputWords = input.split(/\s+/);
+    const member = teamMembers.find(m => {
+      const nombreNorm = normalize(m.name);
+      const nombreParts = nombreNorm.split(' ');
+      // ¿El input contiene el nombre completo o apellido como palabra completa?
+      return nombreParts.some(part => inputWords.includes(part)) || input.includes(nombreNorm);
+    });
     if (member) {
       return `${member.name}: ${member.biography} Hobbies: ${member.hobbies.join(", ")}`
     }
 
-    // Buscar por producto
-    const product = products.find(p => input.includes(p.name.toLowerCase()))
-    if (product) {
-      return `${product.name}: ${product.description}`
-    }
-
-    // Respuesta por categoría
-    if (input.includes("comida asiática") || input.includes("comida asiatica") || input.includes("comida")) {
-      const comida = products.filter(p => p.category === "Comida Asiatica")
-      return `Estos son nuestros platos de comida asiática: ${comida.map(p => p.name).join(", ")}`
-    }
-    if (input.includes("ropa") || input.includes("senderismo") || input.includes("montaña")) {
-      const ropa = products.filter(p => p.category === "Ropa de Senderismo")
-      return `Estos son nuestros productos de senderismo: ${ropa.map(p => p.name).join(", ")}`
-    }
-
-    // Respuesta sobre equipo
+    // 4. Equipo general
     if (input.includes("equipo") || input.includes("miembros")) {
-      return `Nuestro equipo está formado por: ${teamMembers.map(m => m.name).join(", ")}. ¿Te gustaría saber más sobre alguno?`
+      return `Nuestro equipo está formado por: ${teamMembers.map(m => m.name).join(", ")}. ¿Te gustaría saber más sobre alguno?`;
     }
 
-    // Respuesta por defecto
+    // 5. Respuesta por defecto
     return "Gracias por tu mensaje. Puedes preguntarme por algún miembro del equipo o algún producto y te daré más información."
   }
 
