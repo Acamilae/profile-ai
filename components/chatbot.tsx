@@ -13,6 +13,105 @@ interface Message {
   timestamp: Date
 }
 
+const teamMembers = [
+  {
+    name: "Camila España",
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+    biography:
+      "Una persona creativa y aventurera que encuentra equilibrio entre las actividades manuales y la exploración del mundo.",
+    hobbies: ["Tejer", "Leer", "Senderismo", "Viajar por carretera", "Cocinar"],
+  },
+  {
+    name: "Rocio",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    biography:
+      "Amante de las historias y el arte visual, combina su pasión por la lectura con el diseño creativo para crear piezas únicas.",
+    hobbies: ["Leer", "Escuchar música", "Ver series de TV", "Diseñar separadores para libros"],
+  },
+  {
+    name: "Karol",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face",
+    biography:
+      "Una persona multifacética que equilibra el cuidado físico con el crecimiento intelectual y la apreciación artística.",
+    hobbies: ["Música", "Hacer ejercicio", "Leer", "Arte", "Aprender cosas nuevas"],
+  },
+  {
+    name: "Ricardo Gutierrez",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    biography:
+      "Apasionado por la tecnología y el mundo digital. Es un entusiasta del fútbol, tanto como espectador como jugador, valorando el trabajo en equipo y la disciplina.",
+    hobbies: ["Tecnología", "Fútbol", "Mundo digital", "Trabajo en equipo"],
+  },
+  {
+    name: "Andrea Carolina",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face",
+    biography:
+      "Me encanta disfrutar de la vida, compartir momentos con mis seres queridos. La vida es un regalo y quiero disfrutarla al máximo.",
+    hobbies: ["Ver series", "Conversar", "Bailar", "Escuchar música", "Viajar", "Reír con amigos"],
+  },
+]
+
+const products = [
+  // Comida Asiatica
+  {
+    name: "Ramen Tradicional",
+    category: "Comida Asiatica",
+    categoryClass: "category-asian",
+    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=300&fit=crop",
+    description: "Auténtico ramen japonés con caldo rico y fideos frescos",
+  },
+  {
+    name: "Sushi Variado",
+    category: "Comida Asiatica",
+    categoryClass: "category-asian",
+    image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=300&fit=crop",
+    description: "Selección premium de sushi fresco y rolls especiales",
+  },
+  {
+    name: "Pad Thai",
+    category: "Comida Asiatica",
+    categoryClass: "category-asian",
+    image: "https://images.unsplash.com/photo-1559314809-0f31657def5e?w=400&h=300&fit=crop",
+    description: "Clásico tailandés con fideos de arroz y salsa tamarindo",
+  },
+  {
+    name: "Dim Sum",
+    category: "Comida Asiatica",
+    categoryClass: "category-asian",
+    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&h=300&fit=crop",
+    description: "Variedad de dumplings al vapor estilo cantonés",
+  },
+  // Ropa de Senderismo
+  {
+    name: "Chaqueta Impermeable",
+    category: "Ropa de Senderismo",
+    categoryClass: "category-hiking",
+    image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop",
+    description: "Chaqueta técnica resistente al agua y transpirable",
+  },
+  {
+    name: "Botas de Montaña",
+    category: "Ropa de Senderismo",
+    categoryClass: "category-hiking",
+    image: "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=300&fit=crop",
+    description: "Botas resistentes con excelente tracción y soporte",
+  },
+  {
+    name: "Mochila de Trekking",
+    category: "Ropa de Senderismo",
+    categoryClass: "category-hiking",
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop",
+    description: "Mochila ergonómica de 40L para aventuras largas",
+  },
+  {
+    name: "Pantalones Tecnicos",
+    category: "Ropa de Senderismo",
+    categoryClass: "category-hiking",
+    image: "https://images.unsplash.com/photo-1506629905607-d405d7d3b0d2?w=400&h=300&fit=crop",
+    description: "Pantalones ligeros y resistentes para todo terreno",
+  },
+]
+
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
@@ -51,39 +150,41 @@ export function Chatbot() {
     setInputValue("")
   }
 
-  // SOLO la función de respuestas personalizada:
+  // Usando los datos para responder dinámicamente
   const getBotResponse = (userInput: string): string => {
     const input = userInput.toLowerCase()
 
-    // ...Aquí copia toda tu lógica de respuestas del script.js...
-    if (input.includes("camila")) {
-      return "¡Camila España es increíble! Es una persona muy creativa y aventurera. Sus hobbies incluyen tejer (hace piezas hermosas), leer, senderismo por montañas, viajar por carretera descubriendo nuevos lugares, y cocinar platos deliciosos. Encuentra el equilibrio perfecto entre actividades manuales y exploración del mundo."
+    // Buscar por nombre de miembro
+    const member = teamMembers.find(m =>
+      input.includes(m.name.toLowerCase().split(' ')[0]) || input.includes(m.name.toLowerCase().split(' ')[1]?.toLowerCase() || '')
+    )
+    if (member) {
+      return `${member.name}: ${member.biography} Hobbies: ${member.hobbies.join(", ")}`
     }
 
-    if (input.includes("rocío")) {
-      return "Rocío es nuestra artista y amante de las historias. Le encanta leer libros de todos los géneros, escuchar música mientras trabaja, ver series de TV en familia (especialmente dramas y comedias), y su especialidad es diseñar imágenes de separadores para libros únicos y creativos. Combina perfectamente su pasión por la lectura con el diseño visual."
+    // Buscar por producto
+    const product = products.find(p => input.includes(p.name.toLowerCase()))
+    if (product) {
+      return `${product.name}: ${product.description}`
     }
 
-    if (input.includes("karol")) {
-      return "Karol es una persona multifacética fascinante. Sus pasiones incluyen la música (toca instrumentos y compone), hacer ejercicio regularmente (yoga, running, gym), leer libros de desarrollo personal y ficción, crear y apreciar arte en todas sus formas, y está constantemente aprendiendo cosas nuevas - desde idiomas hasta habilidades técnicas."
+    // Respuesta por categoría
+    if (input.includes("comida asiática") || input.includes("comida asiatica") || input.includes("comida")) {
+      const comida = products.filter(p => p.category === "Comida Asiatica")
+      return `Estos son nuestros platos de comida asiática: ${comida.map(p => p.name).join(", ")}`
+    }
+    if (input.includes("ropa") || input.includes("senderismo") || input.includes("montaña")) {
+      const ropa = products.filter(p => p.category === "Ropa de Senderismo")
+      return `Estos son nuestros productos de senderismo: ${ropa.map(p => p.name).join(", ")}`
     }
 
-    if (input.includes("ricardo")) {
-      return "Ricardo Gutiérrez es nuestro experto en tecnología y deportes. Es apasionado por el mundo digital, programación, nuevas tecnologías y tendencias tech. También es un gran entusiasta del fútbol - tanto jugando como viendo partidos. Valora mucho el trabajo en equipo, la disciplina y siempre busca aplicar estos principios tanto en el deporte como en el trabajo."
+    // Respuesta sobre equipo
+    if (input.includes("equipo") || input.includes("miembros")) {
+      return `Nuestro equipo está formado por: ${teamMembers.map(m => m.name).join(", ")}. ¿Te gustaría saber más sobre alguno?`
     }
-
-    if (input.includes("andrea")) {
-      return "Andrea Carolina es pura energía positiva. Su filosofía es disfrutar la vida al máximo. Le encanta ver series (desde comedias hasta thrillers), conversar profundamente con amigos, bailar cualquier ritmo, escuchar música de todos los géneros, viajar y descubrir nuevas culturas, y sobre todo reír con sus amigos. Cree firmemente que la vida es un regalo que debemos celebrar cada día."
-    }
-
-    if (input.includes("equipo") || input.includes("miembros") || input.includes("grupo")) {
-      return "Nuestro equipo está formado por 5 personas increíbles: Camila España (creativa y aventurera), Rocío (artista y lectora), Karol (multifacética y siempre aprendiendo), Ricardo Gutiérrez (tech y fútbol), y Andrea Carolina (energía pura y alegría de vivir). Cada uno aporta talentos únicos. ¿Te gustaría saber más sobre alguno en particular?"
-    }
-
-    // ...y así con el resto de respuestas...
 
     // Respuesta por defecto
-    return "Interesante pregunta. Estoy aquí para ayudarte con información sobre: 👥 Nuestro equipo (Camila, Rocío, Karol, Ricardo, Andrea), 🍜 Comida asiática (Ramen, Sushi, Pad Thai, Dim Sum), 🏔️ Equipamiento de senderismo (Chaquetas, Botas, Mochilas, Pantalones). ¿Sobre qué te gustaría saber más?"
+    return "Gracias por tu mensaje. Puedes preguntarme por algún miembro del equipo o algún producto y te daré más información."
   }
 
   return (
