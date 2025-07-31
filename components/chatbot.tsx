@@ -134,7 +134,6 @@ export function Chatbot() {
 
     setMessages((prev) => [...prev, userMessage])
 
-    // Simular respuesta del bot
     setTimeout(() => {
       const botResponse: Message = {
         id: messages.length + 2,
@@ -148,7 +147,6 @@ export function Chatbot() {
     setInputValue("")
   }
 
-  // --- Lógica corregida ---
   const getBotResponse = (userInput: string): string => {
     const input = normalize(userInput);
 
@@ -186,7 +184,7 @@ export function Chatbot() {
       return nombreParts.some(part => inputWords.includes(part)) || input.includes(nombreNorm);
     });
     if (member) {
-      return `${member.name}: ${member.biography} Hobbies: ${member.hobbies.join(", ")}`
+      return `${member.name}: ${member.biography} Hobbies: ${member.hobbies.join(", ")}`;
     }
 
     // 4. Equipo general
@@ -195,7 +193,7 @@ export function Chatbot() {
     }
 
     // 5. Respuesta por defecto
-    return "Gracias por tu mensaje. Puedes preguntarme por algún miembro del equipo o algún producto y te daré más información."
+    return "Gracias por tu mensaje. Puedes preguntarme por algún miembro del equipo o algún producto y te daré más información.";
   }
 
   return (
